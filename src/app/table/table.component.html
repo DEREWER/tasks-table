@@ -1,4 +1,18 @@
 <div class="paper">
+  <div class="wrapper">
+    <div class="text">
+      <h1>Lorem Ipsum dolor sit amet</h1>
+      <h1>consectetur adipiscing elit</h1>
+      <h2>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2>
+    </div>
+    <ngx-qrcode
+      [elementType]="elementType"
+      [value]="value"
+      cssClass="aclass">
+    </ngx-qrcode>
+  </div>
+
+
   <div *ngFor="let x of tasks">
     <table class="tasks-table">
       <tr class="top-tr">
@@ -8,7 +22,7 @@
       <tr *ngFor="let i of taskNumbers">
         <td>{{i}}</td>
         <td class="td-numbers" colspan="3" *ngFor="let j of rows">
-          {{x.examples[j][i - 1]}}
+          {{x.examples[j - 1][i - 1]}}
         </td>
       </tr>
       <tr *ngFor="let symbol of symbols">

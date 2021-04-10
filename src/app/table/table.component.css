@@ -35,3 +35,14 @@ td {
   border-bottom: none;
   border-top: none;
 }
+
+.wrapper {
+  display: flex;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.text {
+  margin: 0 auto;
+  font-size: 14pt;
+}
