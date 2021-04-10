@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Calibri';
+}
+
+.paper {
+  height: 210mm;
+  width: 297mm;
+  border: 5px solid;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+table {
+  border: 3px solid;
+  border-collapse: collapse;
+  width: 248mm;
+  text-align: center;
+  margin: 10mm auto;
+}
+
+td {
+  border: 1px solid;
+  width: 9mm;
+  height: 8mm;
+}
+
+.top-tr td {
+  height: 3mm;
+  background-color: rgb(200,200, 200);
+}
+
+.td-numbers {
+  border-bottom: none;
+  border-top: none;
+}

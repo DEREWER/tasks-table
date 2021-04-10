@@ -1,0 +1,22 @@
+<div class="paper">
+  <div *ngFor="let x of tasks">
+    <table class="tasks-table">
+      <tr class="top-tr">
+        <td>{{x.id}}</td>
+        <td colspan="3" *ngFor="let i of rows">{{i}}</td>
+      </tr>
+      <tr *ngFor="let i of taskNumbers">
+        <td>{{i}}</td>
+        <td class="td-numbers" colspan="3" *ngFor="let j of rows">
+          {{x.examples[j][i - 1]}}
+        </td>
+      </tr>
+      <tr *ngFor="let symbol of symbols">
+        <td>{{symbol}}</td>
+        <td *ngFor="let i of rows"></td>
+        <td *ngFor="let i of rows"></td>
+        <td *ngFor="let i of rows"></td>
+      </tr>
+    </table>
+  </div>
+</div>
