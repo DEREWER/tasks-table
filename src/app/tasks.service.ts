@@ -1,16 +1,24 @@
 import { Injectable } from '@angular/core';
 import {Task} from './task';
-
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {dashCaseToCamelCase} from '@angular/compiler/src/util';
 // Math.floor(Math.random() * (max - min)) + min;
 @Injectable({
   providedIn: 'root'
 })
 export class TasksService {
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  URL = 'http://84.201.147.111:8015/api/olympiads/get-examples/';
 
   getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-  randomTaskGenerator(num: number, ident: number = this.getRandomInt(0, 10000)): Task {
+  getTask(): Observable<Task> {
+    return this.http.get<Task>(this.URL);
+  }
+
+  randomTaskGenerator(num: number): Task {
     const arr: number[][] = [];
     let x: number[] = [];
     for (let i = 0; i < 20; i++){
@@ -21,9 +29,8 @@ export class TasksService {
       x = [];
     }
     const ans: Task = {
-      id: num,
-      examples: arr,
-      identifier: ident
+      task: num,
+      examples: arr
     };
     return ans;
   }

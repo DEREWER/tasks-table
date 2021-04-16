@@ -1,7 +1,6 @@
 export interface Task {
-  id: number;
+  task: number;
   examples: number[][];
-  identifier: number;
 }
 
 

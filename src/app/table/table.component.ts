@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {TasksService} from '../tasks.service';
 import {Task} from '../task';
 import {NgxQrcodeElementTypes} from 'ngx-qrcode2';
+import {Observable, of} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-table',
@@ -18,22 +20,27 @@ export class TableComponent implements OnInit {
   symbols: string[] = ['=', '+/-'];
   elementType = NgxQrcodeElementTypes.URL;
   value: string;
+  tas: any;
+  x: any;
 
   ngOnInit(): void {
-    const task = this.tasksService.randomTaskGenerator(1);
-    this.value = String(task.identifier);
-    this.tasks = [
-      {
-        id: task.id,
-        examples: task.examples.slice(0, 10),
-        identifier: task.identifier
-      },
-      {
-        id: task.id + 1,
-        examples: task.examples.slice(10),
-        identifier: task.identifier
-      }
-    ];
+    this.tasksService.getTask().subscribe(val => {
+      console.log(val);
+      this.tas = val;
+      this.value = String(this.tas);
+      this.tasks = [
+        {
+          task: this.tas.task,
+          examples: this.tas.examples.slice(0, 10)
+        },
+        {
+          task: this.tas.task,
+          examples: this.tas.examples.slice(10)
+        }
+      ];
+    });
+    // console.log(this.x);
+    // this.tas = this.tasksService.randomTaskGenerator(1);
   }
 
 }
