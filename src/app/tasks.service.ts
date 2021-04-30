@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import {Task} from './task';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {dashCaseToCamelCase} from '@angular/compiler/src/util';
-// Math.floor(Math.random() * (max - min)) + min;
+
 @Injectable({
   providedIn: 'root'
 })
